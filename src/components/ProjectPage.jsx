@@ -39,7 +39,10 @@ export default function ProjectPage({ project, tasks, onAddTask, onClearTask, on
                 <h2 className="text-left font-semibold uppercase text-black">Tasks</h2>
                 <div className="my-5">
                     <input type="text" className="bg-slate-200 focus:bg-slate-300 w-96 mr-5 py-1 px-3 rounded" ref={taskInput} />
-                    <button onClick={() => onAddTask(taskInput.current.value)}>Add Task</button>
+                    <button onClick={() => {
+                        onAddTask(taskInput.current.value);
+                        taskInput.current.value = '';
+                    }}>Add Task</button>
                 </div>
                 {tasksContent}
             </div>
